@@ -1,0 +1,25 @@
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark-mode textarea {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+body.dark-mode button {
+  background-color: #333333;
+  color: #ffffff;
+  border: 1px solid #555555;
+}
+
+:root {
+  --typing-bg: #f9f9f9;
+  --typing-focus-bg: #ffffff;
+}
+
+[data-theme="dark"] {
+  --typing-bg: #1e1e1e;
+  --typing-focus-bg: #2c2c2c;
+}

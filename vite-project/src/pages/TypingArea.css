@@ -1,0 +1,152 @@
+.typing-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background: var(--bg);
+  color: var(--text);
+  border-radius: 10px;
+  font-family: "Fira Code", monospace;
+  outline: none;
+  cursor: text;
+  position: relative;
+}
+
+.paragraph-display {
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+  word-wrap: break-word;
+  user-select: none;
+}
+
+.char {
+  padding: 2px 1px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.char.correct {
+  color: #4caf50;
+  font-weight: 600;
+}
+
+.char.incorrect {
+  color: #f44336;
+  text-decoration: underline;
+}
+
+.cursor {
+  border-left: 2px solid #03a9f4;
+  animation: blink 1s step-start infinite;
+}
+
+.error-cursor {
+  border-left: 2px solid #f44336;
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.wpm-display {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.emoji-pop {
+  font-size: 1.4rem;
+  animation: pop 0.5s ease-out;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+/* TimerDisplay.css (you can merge or keep separate) */
+.timer-display {
+  font-size: 2.4rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #03a9f4;
+}
+
+.timer-display.danger {
+  color: #f44336;
+}
+
+/* ResultModal.css (create separately or merge) */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: var(--bg);
+  color: var(--text);
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 300px;
+  width: 80%;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modal-content h2 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+
+.modal-content p {
+  font-size: 1.2rem;
+  margin: 5px 0;
+}
+
+.close-button {
+  background: #03a9f4;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background 0.3s;
+}
+
+.close-button:hover {
+  background: #0288d1;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
