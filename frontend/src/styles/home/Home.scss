@@ -121,7 +121,7 @@ $light-border: rgba(229, 231, 235, 0.8);
 // Home Page Container
 // ============================================
 .home-container {
-  min-height: 100vh;
+  min-height: 110vh;
   transition: all 0.3s ease;
   position: relative;
   overflow-x: hidden;
@@ -181,7 +181,7 @@ $light-border: rgba(229, 231, 235, 0.8);
   }
 
   @include responsive(lg) {
-    padding: 5rem 2rem;
+    padding: 6rem 2rem;
   }
 }
 
@@ -190,7 +190,7 @@ $light-border: rgba(229, 231, 235, 0.8);
   margin-bottom: 4rem;
 
   @include responsive(md) {
-    margin-bottom: 5rem;
+    margin-bottom: 10rem;
   }
 }
 

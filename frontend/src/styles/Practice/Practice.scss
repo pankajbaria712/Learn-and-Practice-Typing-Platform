@@ -185,3 +185,26 @@
     opacity: 0.6;
   }
 }
+.practice__paragraph {
+  font-size: 1rem;
+  line-height: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.practice__stats {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #555;
+}
+
+.cursor {
+  display: inline-block;
+  width: 0.1rem;
+  background-color: #000;
+  animation: blink 1s step-start infinite;
+
+  &.dark {
+    background-color: #fff;
+  }
+}

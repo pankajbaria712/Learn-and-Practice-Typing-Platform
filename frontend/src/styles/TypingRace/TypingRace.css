@@ -11,7 +11,7 @@
   color: #111;
 }
 .race-container.dark {
-  background: linear-gradient(135deg, #0f172a, #1e293b);
+  background: linear-gradient(135deg, #000, #111827, #1f2937);
   color: #f8fafc;
 }
 .race-container .race-title {

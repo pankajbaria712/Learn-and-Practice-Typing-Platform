@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useContext } from "react";
+import { DarkModeContext } from "../context/DarkModeContext";
 import TypingArea from "../components/TypingArea";
 import "../styles/Practice/Practice.scss";
 
@@ -10,9 +12,10 @@ const codingParagraph =
 const Practice = () => {
   const [mode, setMode] = useState("simple");
   const [timer, setTimer] = useState(60);
+  const { isDarkMode } = useContext(DarkModeContext);
 
   return (
-    <div className="practice">
+    <div className={`practice ${isDarkMode ? "dark" : "light"}`}>
       <h1 className="practice__title">🖥️ Practice Typing</h1>
 
       <div className="practice__controls">

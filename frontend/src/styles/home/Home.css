@@ -33,7 +33,7 @@
   }
 }
 .home-container {
-  min-height: 100vh;
+  min-height: 110vh;
   transition: all 0.3s ease;
   position: relative;
   overflow-x: hidden;
@@ -75,7 +75,7 @@
 }
 @media (min-width: 1024px) {
   .home-hero {
-    padding: 5rem 2rem;
+    padding: 6rem 2rem;
   }
 }
 
@@ -85,7 +85,7 @@
 }
 @media (min-width: 768px) {
   .hero-content {
-    margin-bottom: 5rem;
+    margin-bottom: 10rem;
   }
 }
 
@@ -431,7 +431,7 @@
   color: white;
 }
 .action-button.primary:hover {
-  background: #7a16d4;
+  background: rgb(121.68, 21.84, 212.16);
 }
 .action-button.secondary {
   border: 1px solid;
@@ -442,7 +442,7 @@
   color: #ffffff;
 }
 .action-button.secondary.dark-mode:hover {
-  background: #27354c;
+  background: rgb(38.595505618, 52.7471910112, 75.904494382);
 }
 .action-button.secondary.light-mode {
   background: white;

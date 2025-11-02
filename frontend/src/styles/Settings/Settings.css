@@ -7,7 +7,7 @@
   transition: background 0.4s ease, color 0.4s ease;
 }
 .settings-page.dark {
-  background: linear-gradient(135deg, #0f0f0f, #1a1a1a, #111827);
+  background: linear-gradient(135deg, #000, #111827, #1f2937);
   color: #f9fafb;
 }
 .settings-page.light {
