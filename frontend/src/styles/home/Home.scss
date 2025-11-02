@@ -181,7 +181,7 @@ $light-border: rgba(229, 231, 235, 0.8);
   }
 
   @include responsive(lg) {
-    padding: 6rem 2rem;
+    padding: 2rem 2rem;
   }
 }
 
@@ -190,7 +190,7 @@ $light-border: rgba(229, 231, 235, 0.8);
   margin-bottom: 4rem;
 
   @include responsive(md) {
-    margin-bottom: 10rem;
+    margin-bottom: 6rem;
   }
 }
 
@@ -199,6 +199,10 @@ $light-border: rgba(229, 231, 235, 0.8);
   margin-bottom: 1.5rem;
   font-size: 4rem;
   animation: float 3s ease-in-out infinite;
+
+  img {
+    height: 15rem;
+  }
 
   @include responsive(sm) {
     font-size: 5rem;
@@ -311,6 +315,10 @@ $light-border: rgba(229, 231, 235, 0.8);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 
   &::before {
     content: "";

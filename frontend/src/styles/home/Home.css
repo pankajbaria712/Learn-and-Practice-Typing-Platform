@@ -75,7 +75,7 @@
 }
 @media (min-width: 1024px) {
   .home-hero {
-    padding: 6rem 2rem;
+    padding: 2rem 2rem;
   }
 }
 
@@ -85,7 +85,7 @@
 }
 @media (min-width: 768px) {
   .hero-content {
-    margin-bottom: 10rem;
+    margin-bottom: 6rem;
   }
 }
 
@@ -94,6 +94,9 @@
   margin-bottom: 1.5rem;
   font-size: 4rem;
   animation: float 3s ease-in-out infinite;
+}
+.hero-icon img {
+  height: 15rem;
 }
 @media (min-width: 640px) {
   .hero-icon {
@@ -212,6 +215,10 @@
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 .stat-card::before {
   content: "";

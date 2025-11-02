@@ -55,7 +55,12 @@ export default function Home() {
       <div className="home-hero">
         <div className="hero-content">
           <div>
-            <span className="hero-icon">⌨️</span>
+            <span className="hero-icon">
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/6742/6742660.png"
+                alt=""
+              />
+            </span>
           </div>
           <h1
             className={`hero-title ${isDarkMode ? "dark-mode" : "light-mode"}`}
