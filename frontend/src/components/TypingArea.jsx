@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useContext } from "react";
 import correctSound from "../sounds/correct.mp3";
 import errorSound from "../sounds/error.wav";
 import ResultModal from "./ResultModal";
-import TimerDisplay from "../pages/TimerDisplay";
+import TimerDisplay from "./TimerDisplay";
 import { DarkModeContext } from "../context/DarkModeContext";
 import "../styles/TypingArea/TypingArea.css";
 
