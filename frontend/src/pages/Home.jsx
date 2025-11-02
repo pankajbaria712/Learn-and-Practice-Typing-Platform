@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { DarkModeContext } from "../context/DarkModeContext";
 import { getXP, getStreak, getPracticeSessions } from "../utils/localStorage";
 import { useState, useEffect } from "react";
-import "../styles/Home.scss";
+import "../styles/Home/Home.css";
 
 export default function Home() {
   const { isDarkMode } = useContext(DarkModeContext);

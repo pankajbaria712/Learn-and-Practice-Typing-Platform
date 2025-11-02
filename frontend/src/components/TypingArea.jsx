@@ -1,11 +1,14 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import correctSound from "../sounds/correct.mp3";
 import errorSound from "../sounds/error.wav";
 import ResultModal from "./ResultModal";
-import TimerDisplay from "./TimerDisplay";
-import "./TypingArea.css";
+import TimerDisplay from "../pages/TimerDisplay";
+import { DarkModeContext } from "../context/DarkModeContext";
+import "../styles/TypingArea/TypingArea.css";
 
 const TypingArea = ({ paragraph, mode, timer }) => {
+  const { isDarkMode } = useContext(DarkModeContext); // ✅ use theme context
+
   const [userInput, setUserInput] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isError, setIsError] = useState(false);
@@ -29,9 +32,7 @@ const TypingArea = ({ paragraph, mode, timer }) => {
   useEffect(() => {
     let interval;
     if (isRunning && timeLeft > 0) {
-      interval = setInterval(() => {
-        setTimeLeft((prev) => prev - 1);
-      }, 1000);
+      interval = setInterval(() => setTimeLeft((prev) => prev - 1), 1000);
     } else if (isRunning && timeLeft === 0) {
       calculateResults();
       setShowResult(true);
@@ -58,7 +59,6 @@ const TypingArea = ({ paragraph, mode, timer }) => {
 
   const handleKeyDown = (e) => {
     if (!isRunning) setIsRunning(true);
-
     const key = e.key;
     e.preventDefault();
 
@@ -97,17 +97,17 @@ const TypingArea = ({ paragraph, mode, timer }) => {
 
   return (
     <div
-      className="typing-container"
+      className={`typing-area ${isDarkMode ? "dark" : "light"}`}
       tabIndex={0}
       onKeyDown={handleKeyDown}
       ref={inputRef}
     >
       <TimerDisplay time={timeLeft} />
 
-      <div className="wpm-display">🏎️ WPM: {wpm}</div>
+      <div className="typing-area__stats">🏎️ WPM: {wpm}</div>
 
       <div
-        className={`paragraph-display ${
+        className={`typing-area__paragraph ${
           mode === "coding" ? "coding-mode" : ""
         }`}
       >

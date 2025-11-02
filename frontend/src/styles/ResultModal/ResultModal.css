@@ -1,0 +1,120 @@
+.result-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.result-modal-glass {
+  border-radius: 1rem;
+  padding: 2rem 2.5rem;
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  transform: scale(0.9);
+  animation: popUp 0.4s ease forwards;
+  transition: all 0.3s ease;
+}
+.result-modal-glass.dark {
+  background: rgba(17, 24, 39, 0.9);
+  color: #f9fafb;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+.result-modal-glass.light {
+  background: rgba(255, 255, 255, 0.9);
+  color: #111827;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.result-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.result-subtitle {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.result-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+.result-stats span {
+  font-weight: 700;
+  color: #7c3aed;
+}
+
+.result-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+@media (min-width: 480px) {
+  .result-buttons {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+.result-buttons .share-btn,
+.result-buttons .close-btn {
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 0.6rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.result-buttons .share-btn {
+  background: #7c3aed;
+  color: #fff;
+}
+.result-buttons .share-btn:hover {
+  transform: translateY(-2px);
+  background: #8b5cf6;
+}
+.result-buttons .close-btn {
+  background: #e11d48;
+  color: #fff;
+}
+.result-buttons .close-btn:hover {
+  transform: translateY(-2px);
+  background: #f43f5e;
+}
+
+.neon {
+  box-shadow: 0 0 10px rgba(124, 58, 237, 0.5);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes popUp {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}/*# sourceMappingURL=ResultModal.css.map */

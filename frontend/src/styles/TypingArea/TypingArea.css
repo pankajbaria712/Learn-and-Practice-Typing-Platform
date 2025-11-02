@@ -1,0 +1,136 @@
+@charset "UTF-8";
+.typing-area {
+  width: 100%;
+  max-width: 900px;
+  margin: 2rem auto;
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+  overflow-wrap: anywhere;
+  /* ✅ Responsive Design */
+}
+.typing-area.light {
+  background: rgba(255, 255, 255, 0.9);
+  color: #111;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+.typing-area.light .typing-area__paragraph {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  color: #111;
+}
+.typing-area.light .char.correct {
+  color: #16a34a;
+}
+.typing-area.light .char.incorrect {
+  color: #dc2626;
+}
+.typing-area.dark {
+  background: rgba(17, 24, 39, 0.9);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+.typing-area.dark .typing-area__paragraph {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #e5e7eb;
+}
+.typing-area.dark .char.correct {
+  color: #22c55e;
+}
+.typing-area.dark .char.incorrect {
+  color: #ef4444;
+}
+.typing-area__stats {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #a855f7;
+}
+.typing-area__paragraph {
+  font-family: "Fira Code", monospace;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  line-height: 2rem;
+  text-align: left;
+  font-size: 1rem;
+  min-height: 180px;
+  transition: all 0.3s ease;
+}
+.typing-area__paragraph.coding-mode {
+  background: rgba(30, 27, 75, 0.8);
+  border-color: rgba(168, 85, 247, 0.3);
+}
+.typing-area .char {
+  position: relative;
+  display: inline-block;
+  white-space: pre;
+  transition: all 0.1s ease;
+}
+.typing-area .char.cursor::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 2px;
+  height: 1.2em;
+  background: #a855f7;
+  animation: blink 1s infinite;
+}
+.typing-area .char.error-cursor::after {
+  background: #ef4444;
+  animation: blink 0.4s infinite;
+}
+.typing-area .emoji-pop {
+  position: absolute;
+  top: -1.5rem;
+  left: 0.2rem;
+  animation: pop 0.8s ease forwards;
+  font-size: 1.2rem;
+}
+@keyframes blink {
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+  25%, 75% {
+    opacity: 0;
+  }
+}
+@keyframes pop {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-1.5rem);
+    opacity: 0;
+  }
+}
+@media (max-width: 768px) {
+  .typing-area {
+    padding: 1.2rem;
+  }
+  .typing-area__paragraph {
+    font-size: 0.95rem;
+    line-height: 1.7rem;
+  }
+  .typing-area__stats {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 480px) {
+  .typing-area {
+    padding: 1rem;
+    border-radius: 0.75rem;
+  }
+  .typing-area__paragraph {
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+    padding: 1rem;
+  }
+}/*# sourceMappingURL=TypingArea.css.map */

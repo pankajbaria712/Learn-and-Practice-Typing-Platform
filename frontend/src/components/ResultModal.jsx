@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import confetti from "canvas-confetti";
 import successSoundFile from "../sounds/success.wav";
-import "./ResultModal.css";
+import { DarkModeContext } from "../context/DarkModeContext";
+import "../styles/ResultModal/ResultModal.css";
 
 const ResultModal = ({ show, onClose, wpm, accuracy, time }) => {
+  const { isDarkMode } = useContext(DarkModeContext);
   const [displayWPM, setDisplayWPM] = useState(0);
   const [displayAccuracy, setDisplayAccuracy] = useState(0);
   const [displayTime, setDisplayTime] = useState(0);
@@ -20,9 +22,9 @@ const ResultModal = ({ show, onClose, wpm, accuracy, time }) => {
       audio.volume = 0.4;
       audio.play();
 
-      let wpmCount = 0;
-      let accCount = 0;
-      let timeCount = 0;
+      let wpmCount = 0,
+        accCount = 0,
+        timeCount = 0;
       const interval = setInterval(() => {
         if (wpmCount < wpm) wpmCount += 1;
         if (accCount < accuracy) accCount += 1;
@@ -58,9 +60,10 @@ const ResultModal = ({ show, onClose, wpm, accuracy, time }) => {
 
   return (
     <div className="result-modal-overlay">
-      <div className="result-modal-glass">
+      <div className={`result-modal-glass ${isDarkMode ? "dark" : "light"}`}>
         <h1 className="result-title">🏆 Great Job!</h1>
         <p className="result-subtitle">✨ You completed your typing session!</p>
+
         <div className="result-stats">
           <div>
             🚀 WPM: <span>{displayWPM}</span>
@@ -72,6 +75,7 @@ const ResultModal = ({ show, onClose, wpm, accuracy, time }) => {
             🎯 Accuracy: <span>{displayAccuracy}%</span>
           </div>
         </div>
+
         <div className="result-buttons">
           <button className="share-btn neon" onClick={shareOnX}>
             Share on X

@@ -1,0 +1,218 @@
+.stats-page {
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: background 0.4s ease;
+
+  &.dark {
+    background: linear-gradient(135deg, #000, #111827, #1f2937);
+    color: #f3f4f6;
+  }
+
+  &.light {
+    background: linear-gradient(135deg, #f9fafb, #e0e7ff, #fdf2f8);
+    color: #1f2937;
+  }
+
+  .stats-header {
+    text-align: center;
+    margin-bottom: 3rem;
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, #7c3aed, #ec4899, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeIn 1s ease;
+    }
+
+    p {
+      font-size: 1rem;
+      opacity: 0.8;
+      margin-top: 0.5rem;
+    }
+
+    @media (min-width: 640px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+      p {
+        font-size: 1.1rem;
+      }
+    }
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1100px;
+    margin-bottom: 3rem;
+
+    .stat-card {
+      border-radius: 1rem;
+      padding: 1.5rem;
+      text-align: center;
+      backdrop-filter: blur(12px);
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+
+      &.dark {
+        background: rgba(31, 41, 55, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+      }
+
+      &.light {
+        background: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+      }
+
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      }
+
+      .emoji {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .value {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 0.2rem;
+      }
+
+      .label {
+        font-size: 0.9rem;
+        opacity: 0.7;
+      }
+    }
+  }
+
+  .charts-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1100px;
+    margin-bottom: 3rem;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .chart-card {
+      border-radius: 1rem;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+
+      &.dark {
+        background: rgba(31, 41, 55, 0.6);
+        border: 1px solid rgba(124, 58, 237, 0.3);
+      }
+
+      &.light {
+        background: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(147, 51, 234, 0.2);
+      }
+
+      h3 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .progress-bar {
+        height: 0.75rem;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        background: rgba(100, 100, 100, 0.3);
+
+        .fill {
+          height: 100%;
+          transition: width 0.4s ease;
+          background: linear-gradient(90deg, #3b82f6, #a855f7);
+        }
+
+        &.accuracy {
+          .fill {
+            background: linear-gradient(90deg, #10b981, #22d3ee);
+          }
+        }
+      }
+    }
+  }
+
+  .session-table {
+    width: 100%;
+    max-width: 1100px;
+    border-radius: 1rem;
+    overflow: hidden;
+    backdrop-filter: blur(8px);
+
+    &.dark {
+      background: rgba(31, 41, 55, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    &.light {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+
+      th,
+      td {
+        padding: 1rem;
+        text-align: left;
+      }
+
+      th {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        opacity: 0.8;
+      }
+
+      tbody tr {
+        transition: background 0.3s ease;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.05);
+        }
+      }
+    }
+
+    .no-data {
+      text-align: center;
+      padding: 3rem 1rem;
+      font-size: 1rem;
+      opacity: 0.7;
+
+      .emoji {
+        font-size: 2.5rem;
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

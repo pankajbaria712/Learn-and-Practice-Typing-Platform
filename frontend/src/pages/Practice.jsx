@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import TypingArea from "../pages/TypingArea";
+import TypingArea from "../components/TypingArea";
+import "../styles/Practice/Practice.scss";
 
 const simpleParagraph =
   "The quick brown fox jumps over the lazy dog. Practice daily to improve typing speed.";
@@ -11,16 +12,14 @@ const Practice = () => {
   const [timer, setTimer] = useState(60);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-gray-800 flex flex-col items-center justify-center p-4">
-      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 animate-pulse">
-        🖥️ Practice Typing
-      </h1>
+    <div className="practice">
+      <h1 className="practice__title">🖥️ Practice Typing</h1>
 
-      <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-4 sm:p-6 mb-8 flex flex-col sm:flex-row gap-4 items-center justify-center shadow-lg">
-        <label className="flex flex-col text-white text-sm sm:text-base">
-          Mode:
+      <div className="practice__controls">
+        <label className="practice__label">
+          <span>Mode:</span>
           <select
-            className="mt-1 p-2 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="practice__select"
             value={mode}
             onChange={(e) => setMode(e.target.value)}
           >
@@ -29,10 +28,10 @@ const Practice = () => {
           </select>
         </label>
 
-        <label className="flex flex-col text-white text-sm sm:text-base">
-          Timer:
+        <label className="practice__label">
+          <span>Timer:</span>
           <select
-            className="mt-1 p-2 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="practice__select"
             value={timer}
             onChange={(e) => setTimer(Number(e.target.value))}
           >
