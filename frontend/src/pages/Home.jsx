@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { DarkModeContext } from "../context/DarkModeContext";
 import { getXP, getStreak, getPracticeSessions } from "../utils/localStorage";
 import { useState, useEffect } from "react";
-// import "../styles/Home.scss";
+import "../styles/Home.scss";
 
 export default function Home() {
   const { isDarkMode } = useContext(DarkModeContext);
@@ -49,68 +49,45 @@ export default function Home() {
 
   return (
     <div
-      className={`min-h-screen transition-colors duration-300 ${
-        isDarkMode
-          ? "bg-gradient-to-br from-gray-900 via-gray-800 to-black"
-          : "bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50"
-      }`}
+      className={`home-container ${isDarkMode ? "dark-mode" : "light-mode"}`}
     >
       {/* Hero Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
-        <div className="text-center mb-16">
-          <div className="inline-block mb-6">
-            <span className="text-6xl sm:text-7xl animate-bounce">⌨️</span>
+      <div className="home-hero">
+        <div className="hero-content">
+          <div>
+            <span className="hero-icon">⌨️</span>
           </div>
           <h1
-            className={`text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r ${
-              isDarkMode
-                ? "from-purple-400 via-pink-400 to-blue-400"
-                : "from-purple-600 via-pink-600 to-blue-600"
-            }`}
+            className={`hero-title ${isDarkMode ? "dark-mode" : "light-mode"}`}
           >
             Master Your Typing Skills
           </h1>
           <p
-            className={`text-lg sm:text-xl md:text-2xl mb-8 max-w-3xl mx-auto ${
-              isDarkMode ? "text-gray-300" : "text-gray-700"
+            className={`hero-description ${
+              isDarkMode ? "dark-mode" : "light-mode"
             }`}
           >
             Improve your typing speed, accuracy, and efficiency with our
             interactive typing practice platform
           </p>
 
-          <Link
-            to="/practice"
-            className={`inline-block px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl ${
-              isDarkMode
-                ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-500/50"
-                : "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-500/30"
-            }`}
-          >
+          <Link to="/practice" className="hero-button">
             🚀 Start Practicing Now
           </Link>
         </div>
 
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16 max-w-4xl mx-auto">
+        <div className="stats-grid">
           <div
-            className={`rounded-2xl p-6 backdrop-blur-sm border transition-all duration-300 hover:scale-105 ${
-              isDarkMode
-                ? "bg-gray-800/50 border-purple-500/30 shadow-lg shadow-purple-500/20"
-                : "bg-white/70 border-purple-200 shadow-lg"
+            className={`stat-card xp-card ${
+              isDarkMode ? "dark-mode" : "light-mode"
             }`}
           >
-            <div className="text-4xl mb-2">⭐</div>
+            <span className="stat-icon">⭐</span>
+            <div className="stat-value">{stats.xp}</div>
             <div
-              className={`text-3xl font-bold mb-1 ${
-                isDarkMode ? "text-yellow-400" : "text-yellow-600"
-              }`}
-            >
-              {stats.xp}
-            </div>
-            <div
-              className={`text-sm ${
-                isDarkMode ? "text-gray-400" : "text-gray-600"
+              className={`stat-label ${
+                isDarkMode ? "dark-mode" : "light-mode"
               }`}
             >
               Total XP
@@ -118,23 +95,15 @@ export default function Home() {
           </div>
 
           <div
-            className={`rounded-2xl p-6 backdrop-blur-sm border transition-all duration-300 hover:scale-105 ${
-              isDarkMode
-                ? "bg-gray-800/50 border-orange-500/30 shadow-lg shadow-orange-500/20"
-                : "bg-white/70 border-orange-200 shadow-lg"
+            className={`stat-card streak-card ${
+              isDarkMode ? "dark-mode" : "light-mode"
             }`}
           >
-            <div className="text-4xl mb-2">🔥</div>
+            <span className="stat-icon">🔥</span>
+            <div className="stat-value">{stats.streak}</div>
             <div
-              className={`text-3xl font-bold mb-1 ${
-                isDarkMode ? "text-orange-400" : "text-orange-600"
-              }`}
-            >
-              {stats.streak}
-            </div>
-            <div
-              className={`text-sm ${
-                isDarkMode ? "text-gray-400" : "text-gray-600"
+              className={`stat-label ${
+                isDarkMode ? "dark-mode" : "light-mode"
               }`}
             >
               Day Streak
@@ -142,23 +111,15 @@ export default function Home() {
           </div>
 
           <div
-            className={`rounded-2xl p-6 backdrop-blur-sm border transition-all duration-300 hover:scale-105 ${
-              isDarkMode
-                ? "bg-gray-800/50 border-blue-500/30 shadow-lg shadow-blue-500/20"
-                : "bg-white/70 border-blue-200 shadow-lg"
+            className={`stat-card sessions-card ${
+              isDarkMode ? "dark-mode" : "light-mode"
             }`}
           >
-            <div className="text-4xl mb-2">📈</div>
+            <span className="stat-icon">📈</span>
+            <div className="stat-value">{stats.totalSessions}</div>
             <div
-              className={`text-3xl font-bold mb-1 ${
-                isDarkMode ? "text-blue-400" : "text-blue-600"
-              }`}
-            >
-              {stats.totalSessions}
-            </div>
-            <div
-              className={`text-sm ${
-                isDarkMode ? "text-gray-400" : "text-gray-600"
+              className={`stat-label ${
+                isDarkMode ? "dark-mode" : "light-mode"
               }`}
             >
               Sessions
@@ -167,75 +128,47 @@ export default function Home() {
         </div>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="features-grid">
           {features.map((feature, index) => (
             <div
               key={index}
-              className={`group rounded-2xl p-6 backdrop-blur-sm border transition-all duration-300 hover:scale-105 cursor-pointer ${
-                isDarkMode
-                  ? "bg-gray-800/50 border-gray-700 hover:border-purple-500/50"
-                  : "bg-white/70 border-gray-200 hover:border-purple-300"
-              }`}
+              className={`feature-card ${
+                isDarkMode ? "dark-mode" : "light-mode"
+              } fade-in`}
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div
-                className={`text-5xl mb-4 transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12`}
-              >
-                {feature.icon}
-              </div>
-              <h3
-                className={`text-xl font-bold mb-2 ${
-                  isDarkMode ? "text-white" : "text-gray-900"
-                }`}
-              >
-                {feature.title}
-              </h3>
-              <p
-                className={`text-sm leading-relaxed ${
-                  isDarkMode ? "text-gray-400" : "text-gray-600"
-                }`}
-              >
-                {feature.description}
-              </p>
+              <span className="feature-icon">{feature.icon}</span>
+              <h3 className="feature-title">{feature.title}</h3>
+              <p className="feature-description">{feature.description}</p>
             </div>
           ))}
         </div>
 
         {/* Quick Actions */}
-        <div className="text-center">
+        <div className="quick-actions">
           <h2
-            className={`text-2xl sm:text-3xl font-bold mb-8 ${
-              isDarkMode ? "text-white" : "text-gray-900"
+            className={`quick-actions-title ${
+              isDarkMode ? "dark-mode" : "light-mode"
             }`}
           >
             Quick Actions
           </h2>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link
-              to="/practice"
-              className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 ${
-                isDarkMode
-                  ? "bg-purple-600 hover:bg-purple-700 text-white"
-                  : "bg-purple-600 hover:bg-purple-700 text-white"
-              }`}
-            >
+          <div className="quick-actions-buttons">
+            <Link to="/practice" className="action-button primary">
               💪 Practice Now
             </Link>
             <Link
               to="/stats"
-              className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 ${
-                isDarkMode
-                  ? "bg-gray-700 hover:bg-gray-600 text-white border border-gray-600"
-                  : "bg-white hover:bg-gray-50 text-gray-900 border border-gray-300"
+              className={`action-button secondary ${
+                isDarkMode ? "dark-mode" : "light-mode"
               }`}
             >
               📊 View Stats
             </Link>
             <Link
               to="/settings"
-              className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 ${
-                isDarkMode
-                  ? "bg-gray-700 hover:bg-gray-600 text-white border border-gray-600"
-                  : "bg-white hover:bg-gray-50 text-gray-900 border border-gray-300"
+              className={`action-button secondary ${
+                isDarkMode ? "dark-mode" : "light-mode"
               }`}
             >
               ⚙️ Settings

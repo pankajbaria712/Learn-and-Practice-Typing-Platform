@@ -1,0 +1,138 @@
+// optional if you used color vars in Home.scss
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  width: 100%;
+
+  &.light {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-color: #e5e7eb;
+    .navbar__logo-text {
+      color: #111;
+    }
+    .navbar__link {
+      color: #444;
+      &:hover {
+        background-color: #f3f4f6;
+        color: #6b21a8;
+      }
+      &.active {
+        background-color: #6b21a8;
+        color: #fff;
+        box-shadow: 0 2px 8px rgba(107, 33, 168, 0.3);
+      }
+    }
+    .navbar__toggle {
+      background-color: #f3f4f6;
+      color: #333;
+      &:hover {
+        background-color: #e5e7eb;
+      }
+    }
+  }
+
+  &.dark {
+    background-color: rgba(17, 24, 39, 0.9);
+    border-color: #374151;
+    .navbar__logo-text {
+      color: #fff;
+    }
+    .navbar__link {
+      color: #ccc;
+      &:hover {
+        background-color: #1f2937;
+        color: #fff;
+      }
+      &.active {
+        background-color: #7c3aed;
+        color: #fff;
+        box-shadow: 0 2px 8px rgba(124, 58, 237, 0.4);
+      }
+    }
+    .navbar__toggle {
+      background-color: #1f2937;
+      color: #facc15;
+      &:hover {
+        background-color: #374151;
+      }
+    }
+  }
+
+  &__container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    &-icon {
+      font-size: 1.5rem;
+      margin-right: 0.3rem;
+    }
+
+    &-text {
+      display: none;
+      @media (min-width: 640px) {
+        display: inline;
+      }
+    }
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+
+    .navbar__icon {
+      font-size: 1rem;
+    }
+
+    .navbar__label {
+      display: none;
+      @media (min-width: 640px) {
+        display: inline;
+      }
+    }
+  }
+
+  &__toggle {
+    margin-left: 0.5rem;
+    padding: 0.4rem 0.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+}
