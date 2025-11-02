@@ -1,9 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import confetti from "canvas-confetti";
+import { DarkModeContext } from "../context/DarkModeContext";
 import { getRandomParagraph } from "../utils/paragraphs";
 import { saveRaceSession, addXP, increaseStreak } from "../utils/localStorage";
+import "../styles/TypingRace/TypingRace.css";
 
 export default function TypingRace() {
+  const { isDarkMode } = useContext(DarkModeContext);
+
   const [textToType, setTextToType] = useState(getRandomParagraph());
   const [typedText, setTypedText] = useState("");
   const [startTime, setStartTime] = useState(null);
@@ -15,6 +19,7 @@ export default function TypingRace() {
   const [countdown, setCountdown] = useState(null);
   const [raceStarted, setRaceStarted] = useState(false);
 
+  // Countdown before start
   useEffect(() => {
     if (countdown !== null && countdown > 0) {
       const timer = setTimeout(() => setCountdown(countdown - 1), 1000);
@@ -25,6 +30,7 @@ export default function TypingRace() {
     }
   }, [countdown]);
 
+  // Timer countdown
   useEffect(() => {
     let timer;
     if (raceStarted && !isCompleted && timeLeft > 0) {
@@ -35,6 +41,7 @@ export default function TypingRace() {
     return () => clearInterval(timer);
   }, [raceStarted, timeLeft, isCompleted]);
 
+  // Bot typing simulation
   useEffect(() => {
     let botTimer;
     if (raceStarted && !isCompleted) {
@@ -66,9 +73,9 @@ export default function TypingRace() {
   const finishRace = () => {
     setIsCompleted(true);
     const userWon = typedText.length >= botProgress;
-    if (userWon) {
+    if (userWon)
       confetti({ particleCount: 200, spread: 90, origin: { y: 0.6 } });
-    }
+
     const correctChars = typedText
       .split("")
       .filter((c, i) => c === textToType[i]).length;
@@ -104,29 +111,26 @@ export default function TypingRace() {
 
   const renderHighlightedText = () =>
     textToType.split("").map((char, idx) => {
-      const style = {
-        background:
-          idx < typedText.length
-            ? "#ccffcc"
-            : idx < botProgress
-            ? "#ffcccc"
-            : "transparent",
-        fontSize: "20px",
-        fontFamily: "monospace",
-      };
+      const className =
+        idx < typedText.length
+          ? "user-progress"
+          : idx < botProgress
+          ? "bot-progress"
+          : "";
       return (
-        <span key={idx} style={style}>
+        <span key={idx} className={className}>
           {char}
         </span>
       );
     });
 
   return (
-    <div style={{ padding: "20px", textAlign: "center" }}>
-      <h2>🏁 Typing Race vs Bot</h2>
+    <div className={`race-container ${isDarkMode ? "dark" : "light"}`}>
+      <h2 className="race-title">🏁 Typing Race vs Bot</h2>
+
       {!raceStarted && countdown === null && (
-        <>
-          <div>
+        <div className="race-setup">
+          <div className="bot-speed">
             <label>🤖 Bot Speed: {botWPM} WPM</label>
             <input
               type="range"
@@ -137,41 +141,41 @@ export default function TypingRace() {
               onChange={(e) => setBotWPM(parseInt(e.target.value))}
             />
           </div>
-          <button onClick={() => setCountdown(3)}>Start Race</button>
-        </>
+          <button className="race-btn start" onClick={() => setCountdown(3)}>
+            Start Race 🚀
+          </button>
+        </div>
       )}
-      {countdown > 0 && <h1>⏱️ {countdown}</h1>}
+
+      {countdown > 0 && <h1 className="countdown">⏱️ {countdown}</h1>}
+
       {raceStarted && (
-        <>
-          <p>
-            Time Left: {timeLeft}s | WPM: {wpm}
+        <div className="race-play">
+          <p className="race-status">
+            Time Left: <strong>{timeLeft}s</strong> | WPM:{" "}
+            <strong>{wpm}</strong>
           </p>
-          <div
-            style={{
-              border: "1px solid #ccc",
-              padding: "10px",
-              borderRadius: "8px",
-              marginBottom: "10px",
-            }}
-          >
-            {renderHighlightedText()}
-          </div>
+
+          <div className="race-text">{renderHighlightedText()}</div>
+
           <textarea
-            rows={6}
-            cols={80}
+            rows={5}
             value={typedText}
             onChange={handleTyping}
             disabled={isCompleted}
             placeholder="Start typing here..."
-            style={{ fontFamily: "monospace", fontSize: "16px" }}
+            className="race-input"
           />
+
           {isCompleted && (
-            <>
+            <div className="race-result">
               <p>✅ Race Completed! Your WPM: {wpm}</p>
-              <button onClick={handleRestart}>Restart Race</button>
-            </>
+              <button className="race-btn restart" onClick={handleRestart}>
+                Restart Race 🔁
+              </button>
+            </div>
           )}
-        </>
+        </div>
       )}
     </div>
   );

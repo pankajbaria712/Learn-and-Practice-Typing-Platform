@@ -1,0 +1,142 @@
+.race-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  transition: all 0.3s ease;
+}
+.race-container.light {
+  background: linear-gradient(135deg, #f0f4ff, #fff);
+  color: #111;
+}
+.race-container.dark {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: #f8fafc;
+}
+.race-container .race-title {
+  font-size: 2rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+@media (min-width: 768px) {
+  .race-container .race-title {
+    font-size: 2.5rem;
+  }
+}
+.race-container .race-setup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+.race-container .race-setup .bot-speed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+.race-container .race-setup .bot-speed input[type=range] {
+  width: 200px;
+  accent-color: #7c3aed;
+}
+.race-container .race-btn {
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.race-container .race-btn.start {
+  background: linear-gradient(90deg, #9333ea, #ec4899);
+  color: #fff;
+}
+.race-container .race-btn.start:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(124, 58, 237, 0.3);
+}
+.race-container .race-btn.restart {
+  background: linear-gradient(90deg, #3b82f6, #06b6d4);
+  color: #fff;
+}
+.race-container .race-btn.restart:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.3);
+}
+.race-container .countdown {
+  font-size: 3rem;
+  margin-top: 2rem;
+  animation: pulse 1s infinite;
+}
+.race-container .race-play {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  text-align: center;
+}
+.race-container .race-status {
+  font-weight: 500;
+}
+.race-container .race-text {
+  padding: 1rem;
+  border-radius: 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  font-family: "Courier New", monospace;
+  font-size: 1.1rem;
+  text-align: left;
+  line-height: 1.8;
+  min-height: 150px;
+}
+.race-container .race-text .user-progress {
+  background: rgba(16, 185, 129, 0.3);
+}
+.race-container .race-text .bot-progress {
+  background: rgba(239, 68, 68, 0.3);
+}
+.race-container .race-input {
+  resize: none;
+  border-radius: 0.8rem;
+  padding: 1rem;
+  font-size: 1rem;
+  font-family: monospace;
+  outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
+}
+.race-container .race-input::-moz-placeholder {
+  opacity: 0.7;
+}
+.race-container .race-input::placeholder {
+  opacity: 0.7;
+}
+.race-container .race-input:focus {
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.3);
+}
+@media (max-width: 640px) {
+  .race-container .race-input {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+}
+.race-container .race-result {
+  text-align: center;
+}
+.race-container .race-result p {
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}/*# sourceMappingURL=TypingRace.css.map */

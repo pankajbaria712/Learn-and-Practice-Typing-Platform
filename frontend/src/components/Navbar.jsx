@@ -28,6 +28,7 @@ export default function Navbar() {
             { path: "/", label: "Home", icon: "🏠" },
             { path: "/practice", label: "Practice", icon: "💪" },
             { path: "/stats", label: "Stats", icon: "📊" },
+            { path: "/race", label: "Race", icon: "🏁" },
             { path: "/settings", label: "Settings", icon: "⚙️" },
           ].map(({ path, label, icon }) => (
             <Link
