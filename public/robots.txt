@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /auth/
+Allow: /api/leaderboard
+
+Sitemap: https://learn-and-practice-typing-platform.vercel.app/sitemap.xml
+
+User-agent: Googlebot
+Allow: /
