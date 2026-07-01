@@ -4,7 +4,7 @@ import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 import { DarkModeProvider } from "./context/DarkModeContext.jsx";
 import "./index.css";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/react"
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
