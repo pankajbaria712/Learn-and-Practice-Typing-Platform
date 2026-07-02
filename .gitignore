@@ -3,6 +3,7 @@ node_modules/
 .vercel/
 dist/
 build/
+.env
 .env.local
 .env.*.local
 *.log
@@ -13,6 +14,9 @@ build/
 *.swo
 *~
 .cache/
+.turbo/
+coverage/
+*.pem
 .turbo/
 coverage/
 *.pem
